@@ -1,0 +1,15 @@
+<script>
+import DetailCard from "../components/DetailCard.vue";
+export default {
+  name: "VehicleDetail",
+  components: {
+    DetailCard,
+  },
+};
+</script>
+
+<template>
+  <DetailCard />
+</template>
+
+<style></style>

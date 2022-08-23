@@ -1,0 +1,20 @@
+.card-list {
+  margin: 50px 50px;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin: 30px;
+  height: 400px;
+  float: left;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
