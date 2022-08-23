@@ -4,6 +4,7 @@ import router from "./router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import axios from "./client/resources/request";
+import "./assets/styles/styles.scss";
 
 const app = createApp(App);
 
