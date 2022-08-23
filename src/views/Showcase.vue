@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="row">
+  <div class="container">
     <CardList />
   </div>
 </template>
