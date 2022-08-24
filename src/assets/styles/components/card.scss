@@ -1,0 +1,88 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
+.showcase {
+  &-item {
+    @include radius(12px);
+    background: $ebony-clay;
+    margin-top: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    &-thumbnail {
+      color: $white;
+      position: relative;
+    }
+
+    &-image {
+      overflow: hidden;
+
+      & img {
+        @include radius(12px 12px 0 0);
+        width: 100%;
+        transition: all 0.3s;
+      }
+    }
+
+    &-city {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    &-info {
+      border-bottom: 1px solid rgba($white, 0.15);
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    &-title {
+      @include truncate();
+      font-size: $fs-14;
+      color: $gray-70;
+      font-weight: $fw-medium;
+      margin-bottom: 12px;
+    }
+
+    &-price {
+      font-size: $fs-18;
+      font-weight: $fw-bold;
+    }
+
+    &-body {
+      color: $gray;
+      padding: 0 20px 20px;
+    }
+
+    &-badge {
+      display: flex;
+      flex-wrap: wrap;
+
+      & .badge {
+        margin: 8px 8px 0 0;
+      }
+    }
+
+    & .badge {
+      font-weight: $fw-medium;
+
+      &-city {
+        background: $primary;
+        color: $white;
+      }
+
+      &-empty {
+        background: transparent;
+        color: $gray;
+      }
+    }
+
+    &:hover &-thumbnail {
+      & img {
+        transform: scale(1.2) rotate(-3deg);
+      }
+    }
+  }
+}

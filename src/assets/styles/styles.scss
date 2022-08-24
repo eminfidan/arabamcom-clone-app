@@ -3,6 +3,26 @@
 @use "./base/mixins" as *;
 @use "./base/breakpoints" as *;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+.container {
+  max-width: 1160px;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.row {
+  margin-right: -16px;
+  margin-left: -16px;
+}
+
+[class*="col-"],
+.col {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
 body {
-  background-color: #edf2f7;
+  font-family: "Inter", sans-serif;
+  background-color: $background;
 }
