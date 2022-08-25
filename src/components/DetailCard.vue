@@ -1,7 +1,14 @@
 <script>
 import SimilarAds from "./SimilarAds.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import SwiperCore, { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+SwiperCore.use([Navigation]);
+
 export default {
-  components: { SimilarAds },
+  components: { SimilarAds, Swiper, SwiperSlide },
   data() {
     return {
       vehicleDetail: [],
@@ -50,19 +57,33 @@ export default {
         </div>
       </div>
 
-      <div
-        class="showcase-detail-visual-img-wrapper"
-        v-for="photo in detailPhotos"
-        :key="photo"
+      <swiper
+        :loop="true"
+        :spaceBetween="10"
+        :slidesPerView="1"
+        :navigation="true"
+        class="showcase-swiper"
       >
-        <img :src="photo" :alt="vehicleDetail.modelName" />
+        <swiper-slide v-for="photo in detailPhotos" :key="photo"
+          ><img
+            class="showcase-swiper-img"
+            :src="photo"
+            :alt="vehicleDetail.modelName"
+        /></swiper-slide>
+      </swiper>
+
+      <div class="showcase-detail-visual-description-title">
+        İlan Açıklaması
       </div>
+
       <div
         class="showcase-detail-visual-description"
         v-html="vehicleDetail.text"
       ></div>
 
-      <SimilarAds :categoryId="categoryId.toString()" />
+      <div class="showcase-detail-visual-similar-ads">
+        <SimilarAds :categoryId="categoryId.toString()" />
+      </div>
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
