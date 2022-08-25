@@ -45,6 +45,12 @@ export default {
 <template>
   <div class="showcase-detail row">
     <div class="showcase-detail-visual col-lg-8">
+      <div class="showcase-detail-visual-title">
+        <div class="showcase-detail-visual-title-header">
+          {{ vehicleDetail.title }}
+        </div>
+      </div>
+
       <div
         class="showcase-detail-visual-img-wrapper"
         v-for="photo in detailPhotos"
@@ -59,6 +65,7 @@ export default {
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
+        <a href="#" class="showcase-detail-info-model-brand">FIAT</a>
         <div class="showcase-detail-info-model-name">
           {{ vehicleDetail.modelName }}
         </div>
@@ -73,32 +80,40 @@ export default {
               class="showcase-detail-info-model-properties-keys-circle"
             ></span>
           </div>
+          <div class="showcase-detail-info-model-properties-keys">
+            {{ location.cityName }} / {{ location.townName }}
+          </div>
         </div>
       </div>
-      <div class="showcase-detail-info-location">
-        {{ location.townName }} /
-        {{ location.cityName }}
-      </div>
+
       <div class="showcase-detail-info-price">
         {{ vehicleDetail.priceFormatted }}
       </div>
+
       <div class="showcase-detail-info-card">
-        <div v-for="prop in vehicleDetail.properties" :key="prop">
-          {{ prop.name }}: {{ prop.value }}
-        </div>
+        <ul class="list-group">
+          <li
+            v-for="prop in vehicleDetail.properties"
+            :key="prop"
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            {{ prop.name }}
+            <span class="badge rounded-pill">{{ prop.value }}</span>
+          </li>
+        </ul>
       </div>
+
       <div class="showcase-detail-info-seller">
         <div class="showcase-detail-info-seller-info">
+          <button class="showcase-detail-info-seller-info-button">
+            {{ userInfo.phoneFormatted }}
+          </button>
           <div class="showcase-detail-info-seller-info-text">
             <div class="showcase-detail-info-seller-info-contact">Satıcı:</div>
             <div class="showcase-detail-info-seller-info-name">
               {{ userInfo.nameSurname }}
             </div>
           </div>
-
-          <button class="showcase-detail-info-seller-info-button">
-            {{ userInfo.phoneFormatted }}
-          </button>
         </div>
       </div>
     </div>
