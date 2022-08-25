@@ -16,7 +16,7 @@ export default {
   methods: {
     getVehiclesList() {
       const regex = /{([^}]+)}/g;
-      this.$axios.get().then((response, i) => {
+      this.$axios.get().then((response) => {
         this.vehicleData = response.data;
         this.photo = response.data.map((p) => {
           const imgSize = p.photo.replace(regex, "240x180");

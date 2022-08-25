@@ -1,5 +1,7 @@
 <script>
+import SimilarAds from "./SimilarAds.vue";
 export default {
+  components: { SimilarAds },
   data() {
     return {
       vehicleDetail: [],
@@ -14,6 +16,7 @@ export default {
         gear: "Vites",
         fuel: "Yakıt",
       },
+      categoryId: "",
     };
   },
   created() {
@@ -24,13 +27,13 @@ export default {
       const regex = /{([^}]+)}/g;
       this.$axios.getDetail({ id: this.$route.params.id }).then((response) => {
         this.vehicleDetail = response.data;
+        this.categoryId = response.data.category.id;
         this.userInfo = response.data.userInfo;
         this.location = response.data.location;
         this.detailPhotos = response.data.photos.map((p) => {
           const imgSize = p.replace(regex, "800x600");
           return imgSize;
         });
-        console.log(this.vehicleDetail);
         this.brand = this.vehicleDetail.category.name.split(/[/-]/)[1];
       });
     },
@@ -58,6 +61,8 @@ export default {
         class="showcase-detail-visual-description"
         v-html="vehicleDetail.text"
       ></div>
+
+      <SimilarAds :categoryId="categoryId.toString()" />
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
