@@ -55,10 +55,14 @@ export default {
         </div>
         <div class="showcase-item-body">
           <div class="showcase-item-badge">
-            <span class="badge bg-danger">{{ vehicle.location.cityName }}</span>
-            <span class="badge badge-empty">{{
-              vehicle.location.cityName
-            }}</span>
+            <!-- <span class="badge bg-danger"></span> -->
+            <span
+              class="badge badge-empty"
+              v-for="prop in vehicle.properties"
+              :key="prop"
+            >
+              {{ prop.value }}</span
+            >
           </div>
         </div>
       </div>
