@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      vehicleData: [],
+      filteredVehicleData: [],
       photo: [],
     };
   },
@@ -17,7 +17,15 @@ export default {
     getVehiclesList() {
       const regex = /{([^}]+)}/g;
       this.$axios.get().then((response) => {
-        this.vehicleData = response.data;
+        const vehicleData = response.data;
+        this.filteredVehicleData = vehicleData.map((element) => {
+          return {
+            ...element,
+            properties: element.properties.filter(
+              (subElement) => subElement.name !== "color"
+            ),
+          };
+        });
         this.photo = response.data.map((p) => {
           const imgSize = p.photo.replace(regex, "240x180");
           return imgSize;
@@ -29,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <Card :vehicleData="vehicleData" :regexPhoto="photo" />
+  <Card :vehicleData="filteredVehicleData" :regexPhoto="photo" />
 </template>
 
 <style></style>

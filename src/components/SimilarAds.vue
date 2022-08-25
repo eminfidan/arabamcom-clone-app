@@ -5,7 +5,7 @@ export default {
   components: { Card },
   data() {
     return {
-      similarAds: [],
+      filteredSimilarAds: [],
       photo: [],
       loading: true,
     };
@@ -32,7 +32,15 @@ export default {
         const regex = /{([^}]+)}/g;
         const test = this.loadingState.toString();
         this.$axios.get({ categoryId: test }).then((response) => {
-          this.similarAds = response.data;
+          const similarAds = response.data;
+          this.filteredSimilarAds = similarAds.map((element) => {
+            return {
+              ...element,
+              properties: element.properties.filter(
+                (subElement) => subElement.name !== "color"
+              ),
+            };
+          });
           this.photo = response.data.map((p) => {
             const imgSize = p.photo.replace(regex, "240x180");
             return imgSize;
@@ -49,7 +57,7 @@ export default {
   <div>
     <h3>Benzer İlanlar</h3>
     <div>
-      <Card :vehicleData="similarAds" :regexPhoto="photo" />
+      <Card :vehicleData="filteredSimilarAds" :regexPhoto="photo" />
     </div>
   </div>
 </template>

@@ -55,14 +55,14 @@ export default {
         </div>
         <div class="showcase-item-body">
           <div class="showcase-item-badge">
-            <!-- <span class="badge bg-danger"></span> -->
             <span
-              class="badge badge-empty"
+              class="badge"
               v-for="prop in vehicle.properties"
               :key="prop"
+              :class="prop.name === 'year' ? 'bg-danger' : 'badge-empty'"
             >
-              {{ prop.value }}</span
-            >
+              {{ prop.value }}
+            </span>
           </div>
         </div>
       </div>

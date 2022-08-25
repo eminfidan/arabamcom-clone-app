@@ -10,6 +10,7 @@
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s;
+    min-width: 160px;
 
     &-thumbnail {
       color: $white;
