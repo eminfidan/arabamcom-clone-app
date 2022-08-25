@@ -6,6 +6,14 @@ export default {
       detailPhotos: [],
       userInfo: {},
       location: {},
+      brand: "",
+      engWord: {
+        km: "Kilometre",
+        color: "Renk",
+        year: "Yıl",
+        gear: "Vites",
+        fuel: "Yakıt",
+      },
     };
   },
   created() {
@@ -22,22 +30,10 @@ export default {
           const imgSize = p.replace(regex, "800x600");
           return imgSize;
         });
+        console.log(this.vehicleDetail);
+        this.brand = this.vehicleDetail.category.name.split(/[/-]/)[1];
       });
     },
-    // translateProperties() {
-    //   switch (this.vehicleDetail.properties.name) {
-    //     case "km":
-    //       return "Kilometre";
-    //     case "color":
-    //       return "Renk";
-    //     case "year":
-    //       return "Yıl";
-    //     case "gear":
-    //       return "Vites";
-    //     case "fuel":
-    //       return "Yakıt";
-    //   }
-    // },
   },
 };
 </script>
@@ -65,7 +61,7 @@ export default {
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
-        <a href="#" class="showcase-detail-info-model-brand">FIAT</a>
+        <a href="#" class="showcase-detail-info-model-brand">{{ brand }}</a>
         <div class="showcase-detail-info-model-name">
           {{ vehicleDetail.modelName }}
         </div>
@@ -75,12 +71,14 @@ export default {
             v-for="prop in vehicleDetail.properties"
             :key="prop"
           >
-            {{ prop.value }}
-            <span
-              class="showcase-detail-info-model-properties-keys-circle"
-            ></span>
+            <div
+              class="showcase-detail-info-model-properties-item-year"
+              v-if="prop.name === 'year'"
+            >
+              {{ prop.value }}
+            </div>
           </div>
-          <div class="showcase-detail-info-model-properties-keys">
+          <div class="showcase-detail-info-model-properties-item-location">
             {{ location.cityName }} / {{ location.townName }}
           </div>
         </div>
@@ -97,7 +95,7 @@ export default {
             :key="prop"
             class="list-group-item d-flex justify-content-between align-items-center"
           >
-            {{ prop.name }}
+            {{ engWord[prop.name] }}
             <span class="badge rounded-pill">{{ prop.value }}</span>
           </li>
         </ul>

@@ -41,6 +41,7 @@
         font-weight: $fw-bold;
         color: $primary;
         margin-bottom: 8px;
+        text-transform: uppercase;
 
         &:hover {
           color: darken($primary, 10%);
@@ -64,8 +65,15 @@
           align-items: center;
           justify-content: center;
           position: relative;
+        }
 
-          &:not(:last-child)::after {
+        &-item-location {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+
+          &:before {
             content: "";
             margin: 0 8px;
             display: block;
@@ -105,6 +113,7 @@
         border-color: $gray-70;
         padding-top: 14px;
         padding-bottom: 14px;
+        text-transform: capitalize;
       }
 
       & .badge {
