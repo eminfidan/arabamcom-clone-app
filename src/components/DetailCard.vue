@@ -24,6 +24,7 @@ export default {
         fuel: "Yakıt",
       },
       categoryId: "",
+      showPhone: false,
     };
   },
   created() {
@@ -127,9 +128,14 @@ export default {
       </div>
 
       <div class="showcase-detail-info-seller">
-        <div class="showcase-detail-info-seller-info">
+        <div
+          class="showcase-detail-info-seller-info"
+          v-if="userInfo.phoneFormatted"
+        >
           <button class="showcase-detail-info-seller-info-button">
-            {{ userInfo.phoneFormatted }}
+            <font-awesome-icon icon="fa-solid fa-phone" />
+            <div v-if="showPhone">{{ userInfo.phoneFormatted }}</div>
+            <div v-else @click="showPhone = true">Telefonu Göster</div>
           </button>
           <div class="showcase-detail-info-seller-info-text">
             <div class="showcase-detail-info-seller-info-contact">Satıcı:</div>

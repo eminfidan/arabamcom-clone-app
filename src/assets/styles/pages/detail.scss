@@ -173,6 +173,9 @@
 
         &-button {
           @include radius(12px 12px 0 0);
+          display: flex;
+          justify-content: center;
+          align-items: center;
           background-color: $primary;
           padding: 13px 10px 12px;
           color: $white;
@@ -181,6 +184,10 @@
 
           &:hover {
             background-color: darken($primary, 10%);
+          }
+
+          & svg {
+            margin-right: 8px;
           }
         }
       }
