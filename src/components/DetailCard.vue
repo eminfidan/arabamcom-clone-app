@@ -86,7 +86,7 @@ export default {
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
-        <a href="#" class="showcase-detail-info-model-brand">{{ brand }}</a>
+        <div class="showcase-detail-info-model-brand">{{ brand }}</div>
         <div class="showcase-detail-info-model-name">
           {{ vehicleDetail.modelName }}
         </div>
@@ -141,9 +141,8 @@ export default {
       </div>
     </div>
   </div>
-  <div class="row" style="margin-top: 120px">
-    <div class="showcase-detail-visual-similar-ads col-lg-12">
-      #border
+  <div class="row showcase-detail-visual-similar-ads">
+    <div class="showcase-detail-visual-similar-ads-component col-lg-12">
       <SimilarAds :categoryId="categoryId.toString()" />
     </div>
   </div>

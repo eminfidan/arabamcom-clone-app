@@ -7,9 +7,9 @@ import axios from "./client/resources/request";
 import "./assets/styles/styles.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faMapPin } from "@fortawesome/free-solid-svg-icons";
+import { faMapPin, faBars } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faMapPin);
+library.add(faMapPin, faBars);
 
 const app = createApp(App);
 

@@ -1,8 +1,11 @@
 <script>
 import CardList from "../components/CardList.vue";
+import Navbar from "../components/TheNavbar.vue";
+
 export default {
   name: "Showcase",
   components: {
+    Navbar,
     CardList,
   },
   data() {
@@ -12,6 +15,7 @@ export default {
 </script>
 
 <template>
+  <Navbar />
   <div class="container">
     <CardList />
   </div>

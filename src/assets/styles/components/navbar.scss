@@ -1,0 +1,22 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
+.navbar {
+  background-color: $black;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  .nav-link,
+  .nav-link.active {
+    color: $white;
+  }
+
+  &-text {
+    color: $primary;
+  }
+
+  &-toggler {
+    color: $white;
+  }
+}
