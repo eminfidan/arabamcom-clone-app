@@ -8,6 +8,7 @@ import "./assets/styles/styles.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMapPin, faBars, faPhone } from "@fortawesome/free-solid-svg-icons";
+import filters from "./helpers/filters";
 
 library.add(faMapPin, faBars, faPhone);
 
@@ -15,5 +16,6 @@ const app = createApp(App);
 
 app.use(router);
 app.config.globalProperties.$axios = axios;
+app.config.globalProperties.$filters = filters;
 app.mount("#app");
 app.component("font-awesome-icon", FontAwesomeIcon);

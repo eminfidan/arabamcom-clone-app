@@ -45,7 +45,9 @@ export default {
             <div class="showcase-item-title" :title="vehicle.modelName">
               {{ vehicle.modelName }}
             </div>
-            <div class="showcase-item-price">{{ vehicle.priceFormatted }}</div>
+            <div class="showcase-item-price">
+              {{ $filters.formatPrice(vehicle.price) }}
+            </div>
           </div>
           <div class="showcase-item-city">
             <span class="badge badge-city">{{

@@ -111,7 +111,7 @@ export default {
       </div>
 
       <div class="showcase-detail-info-price">
-        {{ vehicleDetail.priceFormatted }}
+        {{ $filters.formatPrice(vehicleDetail.price) }}
       </div>
 
       <div class="showcase-detail-info-card">
