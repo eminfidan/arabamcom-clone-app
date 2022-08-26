@@ -192,11 +192,53 @@
   @include radius(12px);
 }
 
-.swiper-button {
-  &-prev {
-    color: lighten($primary, 25%);
+.swiper {
+  &-image {
+    @include radius(12px);
+    background: $white;
+    position: relative;
+    overflow: hidden;
+
+    &-container {
+      padding-bottom: 75%;
+    }
+
+    &-wrapper {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
   }
-  &-next {
-    color: lighten($primary, 25%);
+
+  [class*="swiper-button-"] {
+    @include radius(100%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba($white, 0.2);
+
+    &::after {
+      font-size: $fs-24;
+    }
+  }
+
+  &-button {
+    &-prev,
+    &-next {
+      color: $white;
+    }
   }
 }

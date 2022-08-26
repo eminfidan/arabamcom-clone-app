@@ -64,12 +64,15 @@ export default {
         :navigation="true"
         class="showcase-swiper"
       >
-        <swiper-slide v-for="photo in detailPhotos" :key="photo"
-          ><img
-            class="showcase-swiper-img"
-            :src="photo"
-            :alt="vehicleDetail.modelName"
-        /></swiper-slide>
+        <swiper-slide v-for="photo in detailPhotos" :key="photo">
+          <div class="swiper-image">
+            <div class="swiper-image-container">
+              <div class="swiper-image-wrapper">
+                <img :src="photo" :alt="vehicleDetail.modelName" />
+              </div>
+            </div>
+          </div>
+        </swiper-slide>
       </swiper>
 
       <div class="showcase-detail-visual-description-title">
@@ -80,10 +83,6 @@ export default {
         class="showcase-detail-visual-description"
         v-html="vehicleDetail.text"
       ></div>
-
-      <div class="showcase-detail-visual-similar-ads">
-        <SimilarAds :categoryId="categoryId.toString()" />
-      </div>
     </div>
     <div class="showcase-detail-info col-lg-4">
       <div class="showcase-detail-info-model">
@@ -140,6 +139,12 @@ export default {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 120px">
+    <div class="showcase-detail-visual-similar-ads col-lg-12">
+      #border
+      <SimilarAds :categoryId="categoryId.toString()" />
     </div>
   </div>
 </template>
