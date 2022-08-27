@@ -30,8 +30,8 @@ export default {
     getSimilarAds() {
       if (this.loading) {
         const regex = /{([^}]+)}/g;
-        const test = this.loadingState.toString();
-        this.$axios.get({ categoryId: test }).then((response) => {
+        const id = this.loadingState.toString();
+        this.$axios.get({ categoryId: id }).then((response) => {
           const similarAds = response.data;
           this.filteredSimilarAds = similarAds.map((element) => {
             return {
