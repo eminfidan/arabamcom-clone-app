@@ -8,10 +8,13 @@ export default {
     return {
       filteredVehicleData: [],
       photo: [],
+      filter: false,
       filters: {
         sort: 0,
         sortDirection: "",
         take: 50,
+        minYear: "",
+        maxYear: "",
       },
     };
   },
@@ -43,17 +46,39 @@ export default {
 
 <template>
   <div class="showcase">
+    <div class="showcase-filters" v-if="filter">
+      <input
+        type="text"
+        placeholder="Minimum Yıl"
+        maxlength="4"
+        v-model="filters.minYear"
+        @keyup.enter="getVehiclesList()"
+      />
+      <input
+        type="text"
+        placeholder="Maksimum Yıl"
+        maxlength="4"
+        v-model="filters.maxYear"
+        @keyup.enter="getVehiclesList()"
+      />
+      <button @click="getVehiclesList()">Ara</button>
+    </div>
     <div class="showcase-title">
       <h3>Vitrin</h3>
-      <select
-        v-model="filters.sortDirection"
-        class="form-select ms-auto bg-white shadow-none"
-        @change="getVehiclesList()"
-      >
-        <option value="" selected>Sırala</option>
-        <option value="0">Fiyat(artan)</option>
-        <option value="1">Fiyat(azalan)</option>
-      </select>
+      <div class="ms-auto filter-sort">
+        <button @click="filter = !filter">
+          Filtre <font-awesome-icon icon="fa-solid fa-sort" />
+        </button>
+        <select
+          v-model="filters.sortDirection"
+          class="form-select bg-white shadow-none"
+          @change="getVehiclesList()"
+        >
+          <option value="" selected>Sırala</option>
+          <option value="0">Fiyat(artan)</option>
+          <option value="1">Fiyat(azalan)</option>
+        </select>
+      </div>
     </div>
     <Card :vehicleData="filteredVehicleData" :regexPhoto="photo" />
     <div class="showcase-per-page">
