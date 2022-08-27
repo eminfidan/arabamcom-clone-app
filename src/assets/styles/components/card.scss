@@ -147,3 +147,15 @@
     }
   }
 }
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 123px 0;
+
+  & h3 {
+    color: $primary;
+  }
+}
