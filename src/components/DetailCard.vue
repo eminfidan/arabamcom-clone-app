@@ -47,6 +47,7 @@ export default {
     },
   },
 };
+//16218030
 </script>
 
 <template>
@@ -122,7 +123,9 @@ export default {
             class="list-group-item d-flex justify-content-between align-items-center"
           >
             {{ engWord[prop.name] }}
-            <span class="badge rounded-pill">{{ prop.value }}</span>
+            <span class="badge rounded-pill">{{
+              prop.value ? prop.value : "Belirtilmemiş"
+            }}</span>
           </li>
         </ul>
       </div>
