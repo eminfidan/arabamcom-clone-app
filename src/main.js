@@ -14,10 +14,19 @@ import {
   faAward,
   faPeopleGroup,
   faMoneyBills,
+  faSort,
 } from "@fortawesome/free-solid-svg-icons";
 import filters from "./helpers/filters";
 
-library.add(faMapPin, faBars, faPhone, faAward, faPeopleGroup, faMoneyBills);
+library.add(
+  faMapPin,
+  faBars,
+  faPhone,
+  faAward,
+  faPeopleGroup,
+  faMoneyBills,
+  faSort
+);
 
 const app = createApp(App);
 
