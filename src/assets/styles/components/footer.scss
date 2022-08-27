@@ -5,13 +5,18 @@
 .footer {
   background-color: $black;
   display: flex;
-  padding: 50px;
 
   &-contact {
     color: $white;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &-number {
+      @media screen and (max-width: 567px) {
+        font-size: 14px;
+      }
+    }
 
     & svg {
       margin-right: 12px;

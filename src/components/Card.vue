@@ -20,7 +20,7 @@ export default {
 <template>
   <div class="row">
     <div
-      class="col-lg-3"
+      class="col-lg-3 col-sm-6"
       v-for="(vehicle, index) in vehicleData"
       :key="vehicle.id"
       @click="
