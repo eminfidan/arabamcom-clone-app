@@ -1,0 +1,104 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../../../../public/home-bg-image.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+
+  &-button {
+    @include radius(12px);
+    background-color: $primary;
+    color: $white;
+    margin-top: 50px;
+    transition: all 0.3s;
+    padding: 15px 25px;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
+
+  h1 {
+    margin-top: 150px;
+    font-weight: $fw-bold;
+    font-size: $fs-48;
+    color: $white;
+    text-align: center;
+  }
+
+  span {
+    color: $primary;
+  }
+
+  p {
+    color: $white;
+    text-align: center;
+    padding: 0px 20px;
+    margin-top: 40px;
+  }
+}
+
+.homepage {
+  &-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px 0px;
+
+    h2 {
+      font-weight: $fw-bold;
+      font-size: $fs-40;
+      line-height: 63px;
+    }
+
+    &-choose {
+      margin-top: 70px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      &-card {
+        @include radius(8px);
+        padding: 30px 35px;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+        width: 300px;
+        border: 1px solid rgba($gray, 0.2);
+        transition: all 0.3s;
+
+        & svg {
+          font-size: $fs-48;
+        }
+
+        & h4 {
+          margin: 50px 0;
+          font-size: $fs-24;
+          font-weight: $fw-bold;
+        }
+
+        & p {
+          font-size: $fs-16;
+          font-size: $fw-medium;
+          color: $dark-silver;
+        }
+
+        &:hover {
+          box-shadow: 0 2px 10px 0 $gray-50;
+        }
+
+        @media screen and (max-width: 989px) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}

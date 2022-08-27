@@ -7,10 +7,17 @@ import axios from "./client/resources/request";
 import "./assets/styles/styles.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faMapPin, faBars, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapPin,
+  faBars,
+  faPhone,
+  faAward,
+  faPeopleGroup,
+  faMoneyBills,
+} from "@fortawesome/free-solid-svg-icons";
 import filters from "./helpers/filters";
 
-library.add(faMapPin, faBars, faPhone);
+library.add(faMapPin, faBars, faPhone, faAward, faPeopleGroup, faMoneyBills);
 
 const app = createApp(App);
 
