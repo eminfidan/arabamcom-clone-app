@@ -14,24 +14,6 @@ export default {
       },
     },
   },
-  data() {
-    return {
-      parsedVehicleData: [],
-    };
-  },
-  created() {
-    this.parseTitle();
-  },
-  methods: {
-    parseTitle() {
-      this.parsedVehicleData = this.vehicleData.map((e) => {
-        return {
-          ...e,
-          title: e.title.split(" ").join("-").toLowerCase(),
-        };
-      });
-    },
-  },
 };
 </script>
 
@@ -39,7 +21,7 @@ export default {
   <div class="row">
     <div
       class="col-lg-3 col-sm-6"
-      v-for="(vehicle, index) in parsedVehicleData"
+      v-for="(vehicle, index) in vehicleData"
       :key="vehicle.id"
       @click="
         $router.push({

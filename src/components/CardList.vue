@@ -37,6 +37,7 @@ export default {
               properties: element.properties.filter(
                 (subElement) => subElement.name !== "color"
               ),
+              title: element.title.split(" ").join("-").toLowerCase(),
             };
           });
           this.photo = response.data.map((p) => {
