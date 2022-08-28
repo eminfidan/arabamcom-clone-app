@@ -16,6 +16,7 @@ const routes = [
     name: "VehicleDetail",
     component: () => import("@/views/VehicleDetail.vue"),
   },
+  { path: "/:pathMatch(.*)*", component: () => import("@/views/404.vue") },
 ];
 
 const router = createRouter({
