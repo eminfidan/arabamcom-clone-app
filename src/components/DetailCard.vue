@@ -5,10 +5,11 @@ import SwiperCore, { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import LoadingSpinner from "./LoadingSpinner.vue";
 SwiperCore.use([Navigation]);
 
 export default {
-  components: { SimilarAds, Swiper, SwiperSlide },
+  components: { SimilarAds, Swiper, SwiperSlide, LoadingSpinner },
   data() {
     return {
       vehicleDetail: [],
@@ -25,6 +26,7 @@ export default {
       },
       categoryId: "",
       showPhone: false,
+      loadingDetail: true,
     };
   },
   created() {
@@ -45,15 +47,16 @@ export default {
             return imgSize;
           });
           this.brand = this.vehicleDetail.category.name.split(/[/-]/)[1];
+          this.loadingDetail = false;
         });
     },
   },
 };
-//16218030
 </script>
 
 <template>
-  <div class="showcase-detail row">
+  <LoadingSpinner v-if="loadingDetail" />
+  <div class="showcase-detail row" v-else>
     <div class="showcase-detail-visual col-lg-8">
       <div class="showcase-detail-visual-title">
         <div class="showcase-detail-visual-title-header">

@@ -1,10 +1,8 @@
 <template>
-  <div class="h-100 w-100 d-flex align-items-center justify-content-center">
-    <pulse-loader
-      :loading="loading"
-      :color="'#e4022f'"
-      :size="size"
-    ></pulse-loader>
+  <div
+    class="h-100 w-100 d-flex align-items-center justify-content-center pt-5"
+  >
+    <pulse-loader :color="'#e4022f'"></pulse-loader>
   </div>
 </template>
 
