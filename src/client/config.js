@@ -6,7 +6,6 @@ const http = axios.create({
     "Content-Type": "application/json",
   },
 });
-console.log(import.meta);
 
 http.interceptors.request.use(
   (config) => {

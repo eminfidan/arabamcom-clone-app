@@ -27,6 +27,7 @@ export default {
         $router.push({
           name: 'VehicleDetail',
           params: {
+            modelName: vehicle.modelName,
             id: vehicle.id,
           },
         })
