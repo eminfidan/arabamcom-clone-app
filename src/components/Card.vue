@@ -69,12 +69,12 @@ export default {
         </div>
       </div>
     </div>
-    <!-- <div v-if="vehicleData.length === 0" class="not-found">
+    <div v-if="vehicleData.length === 0" class="not-found">
       <h3>Aramanıza uygun sonuç bulamadık.</h3>
       <p>
         Dilerseniz filtrelerinizden birini kaldırıp tekrar deneyebilirsiniz.
       </p>
-    </div> -->
+    </div>
   </div>
 </template>
 
