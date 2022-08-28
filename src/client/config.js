@@ -1,11 +1,12 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://sandbox.arabamd.com/api/v1",
+  baseURL: import.meta.env.VITE_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
+console.log(import.meta);
 
 http.interceptors.request.use(
   (config) => {
