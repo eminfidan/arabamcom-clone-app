@@ -1,8 +1,10 @@
 <script>
 import Card from "./Card.vue";
+import LoadingSpinner from "./LoadingSpinner.vue";
 export default {
   components: {
     Card,
+    LoadingSpinner,
   },
   data() {
     return {
@@ -16,6 +18,7 @@ export default {
         minYear: "",
         maxYear: "",
       },
+      loading: true,
     };
   },
   created() {
@@ -38,6 +41,7 @@ export default {
           const imgSize = p.photo.replace(regex, "240x180");
           return imgSize;
         });
+        this.loading = false;
       });
     },
   },
@@ -80,7 +84,8 @@ export default {
         </select>
       </div>
     </div>
-    <Card :vehicleData="filteredVehicleData" :regexPhoto="photo" />
+    <LoadingSpinner v-if="loading" />
+    <Card :vehicleData="filteredVehicleData" :regexPhoto="photo" v-else />
     <div class="showcase-per-page">
       <select
         v-model="filters.take"
