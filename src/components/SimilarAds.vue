@@ -36,6 +36,7 @@ export default {
           .getVehicles({ params: { take: this.take, categoryId: id } })
           .then((response) => {
             const similarAds = response.data;
+
             this.filteredSimilarAds = similarAds.map((element) => {
               return {
                 ...element,
@@ -44,10 +45,19 @@ export default {
                 ),
               };
             });
+
             this.photo = response.data.map((p) => {
               const imgSize = p.photo.replace(regex, "240x180");
               return imgSize;
             });
+
+            for (let i = 0; i < this.filteredSimilarAds.length; i++) {
+              if (this.filteredSimilarAds[i].id == this.$route.params.id) {
+                this.filteredSimilarAds.splice(i, 1);
+                this.photo.splice(i, 1);
+              }
+            }
+
             this.loading = false;
           });
       }
@@ -57,10 +67,12 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h3>Benzer İlanlar</h3>
-    <div>
-      <Card :vehicleData="filteredSimilarAds" :regexPhoto="photo" />
+  <div class="similar-ads" v-if="filteredSimilarAds.length > 0">
+    <div class="similar-ads-component">
+      <h3>Benzer İlanlar</h3>
+      <div>
+        <Card :vehicleData="filteredSimilarAds" :regexPhoto="photo" />
+      </div>
     </div>
   </div>
 </template>

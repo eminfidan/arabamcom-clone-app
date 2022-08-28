@@ -33,16 +33,6 @@
         margin-bottom: 24px;
       }
     }
-
-    &-similar-ads {
-      margin-top: 120px;
-      margin-bottom: 36px;
-      border-top: 1px solid rgba($gray, 0.2);
-
-      &-component {
-        margin-top: 36px;
-      }
-    }
   }
 
   &-info {
@@ -253,5 +243,15 @@
     &-next {
       color: $white;
     }
+  }
+}
+
+.similar-ads {
+  margin-top: 120px;
+  margin-bottom: 36px;
+  border-top: 1px solid rgba($gray, 0.2);
+
+  &-component {
+    margin-top: 36px;
   }
 }
