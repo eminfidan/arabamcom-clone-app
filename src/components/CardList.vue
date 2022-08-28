@@ -27,22 +27,24 @@ export default {
   methods: {
     getVehiclesList() {
       const regex = /{([^}]+)}/g;
-      this.$axios.get({ params: { ...this.filters } }).then((response) => {
-        const vehicleData = response.data;
-        this.filteredVehicleData = vehicleData.map((element) => {
-          return {
-            ...element,
-            properties: element.properties.filter(
-              (subElement) => subElement.name !== "color"
-            ),
-          };
+      this.$axios
+        .getVehicles({ params: { ...this.filters } })
+        .then((response) => {
+          const vehicleData = response.data;
+          this.filteredVehicleData = vehicleData.map((element) => {
+            return {
+              ...element,
+              properties: element.properties.filter(
+                (subElement) => subElement.name !== "color"
+              ),
+            };
+          });
+          this.photo = response.data.map((p) => {
+            const imgSize = p.photo.replace(regex, "240x180");
+            return imgSize;
+          });
+          this.loading = false;
         });
-        this.photo = response.data.map((p) => {
-          const imgSize = p.photo.replace(regex, "240x180");
-          return imgSize;
-        });
-        this.loading = false;
-      });
     },
   },
 };

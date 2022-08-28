@@ -33,17 +33,19 @@ export default {
   methods: {
     getVehicleDetail() {
       const regex = /{([^}]+)}/g;
-      this.$axios.getDetail({ id: this.$route.params.id }).then((response) => {
-        this.vehicleDetail = response.data;
-        this.categoryId = response.data.category.id;
-        this.userInfo = response.data.userInfo;
-        this.location = response.data.location;
-        this.detailPhotos = response.data.photos.map((p) => {
-          const imgSize = p.replace(regex, "800x600");
-          return imgSize;
+      this.$axios
+        .getVehicleDetail({ id: this.$route.params.id })
+        .then((response) => {
+          this.vehicleDetail = response.data;
+          this.categoryId = response.data.category.id;
+          this.userInfo = response.data.userInfo;
+          this.location = response.data.location;
+          this.detailPhotos = response.data.photos.map((p) => {
+            const imgSize = p.replace(regex, "800x600");
+            return imgSize;
+          });
+          this.brand = this.vehicleDetail.category.name.split(/[/-]/)[1];
         });
-        this.brand = this.vehicleDetail.category.name.split(/[/-]/)[1];
-      });
     },
   },
 };

@@ -1,10 +1,10 @@
 import axios from "../config.js";
 
 export default {
-  get: async (params) => {
+  getVehicles: async (params) => {
     return await axios.get("/listing", { ...params });
   },
-  getDetail: async (params) => {
+  getVehicleDetail: async (params) => {
     return await axios.get("/detail", {
       params: params,
     });

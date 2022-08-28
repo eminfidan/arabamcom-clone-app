@@ -8,6 +8,7 @@ export default {
       filteredSimilarAds: [],
       photo: [],
       loading: true,
+      take: 20,
     };
   },
   props: {
@@ -31,22 +32,24 @@ export default {
       if (this.loading) {
         const regex = /{([^}]+)}/g;
         const id = this.loadingState.toString();
-        this.$axios.get({ categoryId: id }).then((response) => {
-          const similarAds = response.data;
-          this.filteredSimilarAds = similarAds.map((element) => {
-            return {
-              ...element,
-              properties: element.properties.filter(
-                (subElement) => subElement.name !== "color"
-              ),
-            };
+        this.$axios
+          .getVehicles({ params: { take: this.take, categoryId: id } })
+          .then((response) => {
+            const similarAds = response.data;
+            this.filteredSimilarAds = similarAds.map((element) => {
+              return {
+                ...element,
+                properties: element.properties.filter(
+                  (subElement) => subElement.name !== "color"
+                ),
+              };
+            });
+            this.photo = response.data.map((p) => {
+              const imgSize = p.photo.replace(regex, "240x180");
+              return imgSize;
+            });
+            this.loading = false;
           });
-          this.photo = response.data.map((p) => {
-            const imgSize = p.photo.replace(regex, "240x180");
-            return imgSize;
-          });
-          this.loading = false;
-        });
       }
     },
   },
