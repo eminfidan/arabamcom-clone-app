@@ -1,14 +1,10 @@
 # arabamcom-assignment
 
-This template should help get you started developing with Vue 3 in Vite.
+NOT: BASE_URL bilgisi .env dosyasından alınmaktadır. Sizlerin ulaşabilmesi adına .gitignore dosyasına eklemedim. Production için .gitignore dosyasına eklenmesi ve open source projeler için .env.sample dosyası oluşturulması gerekiyor.
 
-## Recommended IDE Setup
+arabam.com API'ını kullanarak challenge bünyesinde benden istenilenler dışında fiyat bilgisini formatladım. Detay sayfasında o anda açık olan ilanın modeli ile benzer ilanları listeledim. JavaScript map, filter, replace ve splice gibi metotları kullandım. Detay sayfasında kolay erişilebilirlik için sağda bulunan kartı sticky yaptım. Kullanıcıların karşılanması adına bir landing page sayfası geliştirdim. 404 sayfası geliştirdim.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Teknik olarak: API'ı merkezileştirdim. SASS design paternine göre mixin, variable, breakpoint ve reset gibi araçları kullandım. JS filtreleme metodu Vue3'te kaldırıldığı için global helper yazdım.
 
 ## Project Setup
 
