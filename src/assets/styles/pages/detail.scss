@@ -172,6 +172,10 @@
           text-align: center;
           transition: all 0.3s;
 
+          & a {
+            color: $white;
+          }
+
           &:hover {
             background-color: darken($primary, 10%);
           }

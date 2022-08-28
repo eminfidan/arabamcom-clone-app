@@ -142,7 +142,13 @@ export default {
         >
           <button class="showcase-detail-info-seller-info-button">
             <font-awesome-icon icon="fa-solid fa-phone" />
-            <div v-if="showPhone">{{ userInfo.phoneFormatted }}</div>
+            <div v-if="showPhone">
+              <a
+                :href="'https://wa.me/' + userInfo.phoneFormatted"
+                target="_blank"
+                >{{ userInfo.phoneFormatted }}</a
+              >
+            </div>
             <div v-else @click="showPhone = true">Telefonu Göster</div>
           </button>
           <div class="showcase-detail-info-seller-info-text">
