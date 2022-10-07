@@ -1,10 +1,7 @@
-# arabamcom-assignment
+![image](https://user-images.githubusercontent.com/49679573/194487741-a0333eb3-8375-4d34-91f9-69353d6aba25.png)
 
-NOT: BASE_URL bilgisi .env dosyasından alınmaktadır. Sizlerin ulaşabilmesi adına .gitignore dosyasına eklemedim. Production için .gitignore dosyasına eklenmesi ve open source projeler için .env.sample dosyası oluşturulması gerekiyor.
+Arabam.com dummy API kullanarak hazırladığım modern clone app.
 
-arabam.com API'ını kullanarak challenge bünyesinde benden istenilenler dışında fiyat bilgisini formatladım. Detay sayfasında o anda açık olan ilanın modeli ile benzer ilanları listeledim. JavaScript map, filter, replace ve splice gibi metotları kullandım. Detay sayfasında kolay erişilebilirlik için sağda bulunan kartı sticky yaptım. Kullanıcıların karşılanması adına bir landing page sayfası geliştirdim. 404 sayfası geliştirdim.
-
-Teknik olarak: API'ı merkezileştirdim. SASS design paternine göre mixin, variable, breakpoint ve reset gibi araçları kullandım. JS filtreleme metodu Vue3'te kaldırıldığı için global helper yazdım.
 
 ## Project Setup
 
